@@ -40,3 +40,16 @@ export function putPeople(req: Request, res: Response) {
     res.status(200).json({success: true, data: newPeople});
 }
 
+export function deletePeople(req: Request, res: Response){
+    const {id} = req.params;
+    const person = people.find((person) => person.id === Number(id));
+    if (!person) {
+        return res
+            .status(404)
+            .json({ success: false, msg: `no person with id ${id}` })
+    }
+    const newPeople = people.filter(
+        (person) => person.id !== Number(id)
+    )
+    return res.status(200).json({ success: true, data: newPeople });
+}
