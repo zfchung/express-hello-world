@@ -1,8 +1,9 @@
 import express from "express";
-import {peopleController} from "../../controllers/people";
+import {getPeople, postPeople} from "../../controllers/people";
 
 const peopleRouter = express.Router();
 
-peopleRouter.get("/", peopleController);
+peopleRouter.get("/", getPeople);
+peopleRouter.post("/", postPeople);
 
 export default peopleRouter;
