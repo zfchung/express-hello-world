@@ -1,28 +1,18 @@
-import express from 'express';
+import express from "express";
+import {homeRouter} from "./routes/home";
+import {aboutRouter} from "./routes/about";
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+// parse form data
+app.use(express.urlencoded({extended: false}));
+// parse json
+app.use(express.json());
 
-app.get('/about', (req, res) => {
-    res.status(200).send('About Page');
-});
-
-app.all('*', (req, res) => {
-    res.status(404).send(`<h1>resource not found</h1>`);
-});
+app.use("/home", homeRouter);
+app.use("/about", aboutRouter);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}......`);
 });
-
-// app.get
-// app.post
-// app.put
-// app.delete
-// app.all
-// app.use for middleware
-// app.listen
