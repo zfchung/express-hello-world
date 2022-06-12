@@ -1,5 +1,5 @@
-import express from "express";
+import {Request, Response} from "express";
 
-export function home(req: express.Request, res: express.Response) {
-    res.send(`Home page`);
+export function home(req: Request, res: Response) {
+    res.json(`Home page`);
 }

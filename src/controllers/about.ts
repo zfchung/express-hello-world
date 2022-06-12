@@ -1,5 +1,5 @@
-import express from "express";
+import {Response, Request} from "express";
 
-export function about(req: express.Request, res: express.Response) {
-    res.send(`About this wiki`);
+export function about(req: Request, res: Response) {
+    res.json(`About this wiki`);
 }
