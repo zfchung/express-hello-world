@@ -1,9 +1,9 @@
 import express from "express";
-import {about} from "../controllers/about";
+import {aboutController} from "../../controllers/about";
 
 const aboutRouter = express.Router();
 
-aboutRouter.get('/', about);
+aboutRouter.get('/', aboutController);
 aboutRouter.post('/',);
 
 export default aboutRouter;
