@@ -1,6 +1,6 @@
 import {Response, Request} from "express";
 import {getPeopleData} from "../../services/people";
-import {people} from "../../data";
+import {people} from "../../sample-data";
 
 export function getPeople(req: Request, res: Response) {
     res.status(200).json(getPeopleData());
