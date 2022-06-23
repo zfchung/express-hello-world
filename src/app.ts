@@ -1,7 +1,8 @@
 import app from './index';
 import router from "./routes";
 
-const port = 3000;
+const defaultPortNumber = 3000;
+const port = Number(process.env.PORT || defaultPortNumber);
 
 app.use(router);
 
