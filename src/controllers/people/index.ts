@@ -1,11 +1,9 @@
 import {Response, Request} from "express";
+import {getPeopleData} from "../../services/people";
 import {people} from "../../data";
 
 export function getPeople(req: Request, res: Response) {
-    res.status(200).json({
-        success: true,
-        data: people
-    });
+    res.status(200).json(getPeopleData());
 }
 
 export function postPeople(req: Request, res: Response) {
