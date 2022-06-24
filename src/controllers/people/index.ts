@@ -1,5 +1,5 @@
 import {Response, Request} from "express";
-import {getPeopleData} from "../../services/people";
+import {findPeople, getPeopleData} from "../../services/people";
 import {people} from "../../sample-data";
 
 export function getPeople(req: Request, res: Response) {
@@ -13,7 +13,7 @@ export function postPeople(req: Request, res: Response) {
             .status(400)
             .json({msg: 'Please provide name value'});
     }
-    res.status(201).json({success: true, person: name});
+    res.status(200).json(findPeople(name));
 }
 
 export function putPeople(req: Request, res: Response) {
